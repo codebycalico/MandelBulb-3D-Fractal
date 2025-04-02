@@ -30,7 +30,7 @@ void setup() {
         // n is the power to which we are setting the formula to
         // we can play with it to change the look
         // formula is z = z^n + c
-        int n = 2;
+        int n = 6;
         int max_iterations = 20;
         int iteration = 0;
         
@@ -96,7 +96,10 @@ void draw() {
   
   // actually drawing the array list of PVectors for the mandelbulb
   for(PVector v : mandelbulb) {
-    stroke(255);
+    float redStroke = map(v.x, -100, 100, 0, 255);
+    float greenStroke = map(v.y, -100, 100, 0, 255);
+    float blueStroke = map(v.z, -100, 100, 0, 255);
+    stroke(int(redStroke), int(greenStroke), int(blueStroke));
     point(v.x, v.y, v.z);
   }
 }
